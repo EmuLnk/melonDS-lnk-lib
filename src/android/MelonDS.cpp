@@ -586,5 +586,10 @@ namespace MelonDSAndroid
 
         openGlContext->Release();
     }
+
+    melonDS::NDS* getNds()
+    {
+        return instance ? instance->getNds() : nullptr;
+    }
 }
 

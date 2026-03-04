@@ -73,6 +73,7 @@ namespace MelonDSAndroid {
     extern RewindWindow getRewindWindow();
     extern void stop();
     extern void cleanup();
+    extern melonDS::NDS* getNds();
 }
 
 #endif //MELONDS_MELONDS_H

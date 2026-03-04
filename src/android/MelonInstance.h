@@ -27,6 +27,7 @@ public:
     ~MelonInstance();
 
     int getInstanceId() { return instanceId; };
+    NDS* getNds() { return nds; }
 
     bool loadRom(std::string romPath, std::string sramPath);
     bool loadGbaRom(std::string romPath, std::string sramPath);
