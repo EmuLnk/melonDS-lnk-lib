@@ -69,6 +69,7 @@ add_library(core STATIC
 
 if (ENABLE_GDBSTUB)
     message(NOTICE "Enabling GDB stub")
+    target_compile_definitions(core PUBLIC GDBSTUB_ENABLED)
     target_sources(core PRIVATE
         debug/GdbStub.cpp
         debug/GdbProto.cpp

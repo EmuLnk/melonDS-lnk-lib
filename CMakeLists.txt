@@ -94,9 +94,6 @@ endif()
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 option(ENABLE_GDBSTUB "Enable GDB stub" ON)
-if (ENABLE_GDBSTUB)
-    add_definitions(-DGDBSTUB_ENABLED)
-endif()
 
 option(BUILD_QT_SDL "Build Qt/SDL frontend" ON)
 
