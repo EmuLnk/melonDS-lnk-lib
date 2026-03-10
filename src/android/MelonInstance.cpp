@@ -18,6 +18,8 @@
 #include "net/Net_Slirp.h"
 #include "Platform.h"
 #include "SDCardArgsBuilder.h"
+#include "CartLoader.h"
+#include "md5.h"
 
 using namespace std;
 using namespace melonDS;
@@ -115,6 +117,9 @@ bool MelonInstance::loadRom(std::string romPath, std::string sramPath)
     {
         return false;
     }
+
+    // Compute MD5 hash of ROM data (cached for EMLKV2 handshake)
+    MelonDSAndroid::SetLastRomHash(EmuLnk::ComputeMD5Hex(romData.get(), romFileLength));
 
     // SRAM file loading
     FileHandle* sramFile = Platform::OpenFile(sramPath, FileMode::Read);

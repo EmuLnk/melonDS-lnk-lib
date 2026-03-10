@@ -9,6 +9,10 @@ using namespace melonDS::Platform;
 namespace MelonDSAndroid
 {
 
+// Written on the ROM-load thread, read from the UDP listener thread.
+// Safe because ROM loading completes before the server starts polling.
+static std::string lastRomHash;
+
 std::optional<NDSCart::NDSCartArgs> BuildNdsCartArgs(EmulatorConfiguration configuration, std::string romPath, std::string sramPath)
 {
     std::unique_ptr<u8[]> romData = nullptr;
@@ -76,6 +80,16 @@ std::optional<NDSCart::NDSCartArgs> BuildNdsCartArgs(EmulatorConfiguration confi
     }
 
     return cartargs;
+}
+
+void SetLastRomHash(std::string hash)
+{
+    lastRomHash = std::move(hash);
+}
+
+std::string GetLastRomHash()
+{
+    return lastRomHash;
 }
 
 }
