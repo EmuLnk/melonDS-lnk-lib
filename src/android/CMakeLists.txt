@@ -18,6 +18,7 @@ set(ANDROID_SOURCES
         renderer/FrameQueue.cpp
         retroachievements/RetroAchievementsManager.cpp
 
+        ../md5.cpp
         ../frontend/RewindManager.cpp
         ../frontend/mic_blow.h
 )
